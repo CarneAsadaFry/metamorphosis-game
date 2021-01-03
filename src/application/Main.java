@@ -1,10 +1,9 @@
+package application;
+
+import java.io.File;
+
 import javafx.application.Application;
-import javafx.event.EventHandler;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
@@ -60,8 +59,18 @@ public class Main extends Application {
         
         base.setTranslateX(-62);
         base.setTranslateY(-62);
-        
-        p1.stage.layout[15][15].pane.getChildren().add(new ImageView(new Image("img/F1.jpg", SQ_SIZE, SQ_SIZE, false, false)));
+
+		File imageFile = new File("img/F1.jpg");
+		String F1loc = imageFile.toURI().toString();
+		System.out.println(F1loc);
+		imageFile = new File("./img/F2.jpg");
+		String F2loc = imageFile.toURI().toString();
+		imageFile = new File("./img/F3.jpg");
+		String F3loc = imageFile.toURI().toString();
+		imageFile = new File("./img/F4.jpg");
+		String F4loc = imageFile.toURI().toString();
+
+		p1.stage.layout[15][15].pane.getChildren().add(new ImageView(new Image(F1loc, SQ_SIZE, SQ_SIZE, false, false)));
          
 //         for(Tile[] a : p1.stage.layout){
 //        	 for(Tile t : a){
@@ -107,13 +116,13 @@ public class Main extends Application {
         	
         	ImageView m;
         	if(p1.clarity >= 99){
-        		m = new ImageView(new Image("img/F4.jpg", SQ_SIZE, SQ_SIZE, false, false));
+        		m = new ImageView(new Image(F4loc, SQ_SIZE, SQ_SIZE, false, false));
         	}else if(p1.clarity >= 66){
-        		m = new ImageView(new Image("img/F3.jpg", SQ_SIZE, SQ_SIZE, false, false));
+        		m = new ImageView(new Image(F3loc, SQ_SIZE, SQ_SIZE, false, false));
         	}else if(p1.clarity >= 33){
-        		m = new ImageView(new Image("img/F2.jpg", SQ_SIZE, SQ_SIZE, false, false));
+        		m = new ImageView(new Image(F2loc, SQ_SIZE, SQ_SIZE, false, false));
         	}else{
-        		m = new ImageView(new Image("img/F1.jpg", SQ_SIZE, SQ_SIZE, false, false));
+        		m = new ImageView(new Image(F1loc, SQ_SIZE, SQ_SIZE, false, false));
         	}
         	
         	p1.stage.layout[p1.xPos][p1.yPos].pane.getChildren().add(m);

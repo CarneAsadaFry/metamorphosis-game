@@ -1,3 +1,4 @@
+package application;
 
 public class Food {
 	static enum Type {

@@ -1,3 +1,5 @@
+package application;
+
 import javax.swing.JOptionPane;
 import javafx.stage.Stage;
 import java.util.ArrayList;
